@@ -42,7 +42,8 @@ public class Producer {
                 String value = stellarObject.toString();
                 // Create producer record
                 ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
-                // Send message
+                // Send message and catch exception
+                // Callback runs on IO thread
                 producer.send(record, (metadata, e) -> {
                     if (e != null)
                         logger.info("Send failed for record " + record + " :" + e.getMessage());
