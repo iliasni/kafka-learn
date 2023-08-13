@@ -4,6 +4,7 @@ Apache kafka project created for educational purposes. Built in `kafka 3.5.1` an
 Consists of one kafka producer, one kafka consumer and a kafka cluster with one broker using raft.
 Producer sends messages to the kafka broker and consumer receives them.
 
+
 ## Producer
 
 Instantiates and configures kafka producer. Parses JSON dataset line by line using `Jackson` and maps the objects
@@ -25,3 +26,9 @@ for messages every 100ms until manually stopped.
 
 The kafka cluster consists of a single kafka broker container node that is running with raft instead of Zookeeper.
 For more information about the configuration see the `compose.yaml` file.
+
+## Monitoring
+
+Basic kafka cluster monitoring capabilities are also set up using `provectus` which is configured and created as a
+service in the `compose` file. User can view information about clusters, topics, partitions, messages etc. by visiting
+`localhost:8080`. 
